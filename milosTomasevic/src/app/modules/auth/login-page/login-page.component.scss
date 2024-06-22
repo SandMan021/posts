@@ -1,0 +1,21 @@
+.form_wrapper {
+  width: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  &__item {
+    margin-bottom: 15px;
+    label {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.error_text {
+  color: red;
+}
+
+.unpw_spacer {
+  margin-bottom: 15px;
+}

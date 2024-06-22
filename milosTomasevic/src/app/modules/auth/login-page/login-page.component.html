@@ -1,1 +1,20 @@
-<p>login-page works!</p>
+<div class="form_wrapper">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="d-flex flex-column form_wrapper__item">
+            <label for="username">Username</label>
+            <input type="text" name="username" [(ngModel)]="username"  #usernameRef="ngModel" required>
+            <div class="error_text" *ngIf="submitted && usernameRef.errors?.required">This field is required</div>
+        </div>
+        <div class="d-flex flex-column form_wrapper__item">
+            <label for="password">Password</label>
+            <input type="password" name="password" [(ngModel)]="password"  #passwordRef="ngModel" required>
+            <div class="error_text" *ngIf="submitted && passwordRef.errors">This field is required</div>
+        </div>
+        <div class="error_text unpw_spacer" *ngIf="submitted && wrongCredentials">Username or password is wrong!</div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+
+
+    </form>
+</div>
