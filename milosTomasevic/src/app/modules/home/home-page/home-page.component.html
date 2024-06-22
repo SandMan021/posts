@@ -1,1 +1,31 @@
-<p>home-page works!</p>
+<div>
+    <h1>Home</h1>
+
+    <div style="width: 500px; margin-bottom: 25px;">
+        <ng-select [items]="lstOfTags" [(ngModel)]="selectedTag"></ng-select>
+    </div>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>tags</th>
+            <th>views</th>
+        </tr>
+        <tr *ngFor="let item of listOfPosts$ | async" appRowColor [criteria]="selectedTag" [values]="item.tags"
+            (click)="selectedPost = item">
+            <td>{{item?.id}}</td>
+            <td>{{item?.title}}</td>
+            <td>{{item?.tags}}</td>
+            <td>{{item?.views}}</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 15px;">
+        <button (click)="previousPage()" [disabled]="this.currentPage$.value=== 1">Previous</button>
+        <span>Page {{ this.currentPage$.value }}</span>
+        <button (click)="nextPage()" [disabled]="this.currentPage$.value === totalPages">Next</button>
+    </div>
+</div>
+<div style="margin-top: 25px;">
+    <app-detailed-view [detaildPost]="selectedPost"></app-detailed-view>
+</div>

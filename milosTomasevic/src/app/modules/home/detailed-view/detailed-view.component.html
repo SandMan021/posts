@@ -1,0 +1,16 @@
+<div *ngIf="detaildPost" style="width: 800px;">
+    <div class="d-flex">
+        <div>
+            <h2>Detaild view</h2>
+            <h3>{{ detaildPost?.id}} {{ detaildPost?.title}}</h3>
+            <p>{{ detaildPost?.body}}</p>
+            <div>{{ detaildPost?.tags}}</div>
+            <div>{{ detaildPost?.reactions ?? '' | json}}</div>
+            <div>{{ detaildPost?.views}}</div>
+            <div>{{ detaildPost?.userId}}</div>
+        </div>
+        <div>
+            <button (click)="detaildPost=null">Close</button>
+        </div>
+    </div>
+</div>
